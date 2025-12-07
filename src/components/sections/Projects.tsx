@@ -141,57 +141,37 @@ export const ProjectsSection: React.FC<ProjectsProps> = ({ onProjectClick, onVie
           </Button>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
-          
-          {/* Hero Project (Large) - Takes 2 cols and 2 rows on Desktop */}
-          <div 
-            onClick={() => onProjectClick(heroProject.id)}
-            className="group relative md:col-span-2 md:row-span-2 rounded-[2rem] overflow-hidden cursor-pointer bg-muted/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.01] ring-1 ring-white/5 hover:ring-primary/40"
-          >
-            <img 
-              src={heroProject.imageUrl} 
-              alt={heroProject.title} 
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
-            
-            <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
-              <div className="mb-4 inline-flex items-center px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-wider">
-                Proyecto Destacado
-              </div>
-              <h3 className="text-3xl md:text-5xl font-bold text-white mb-4">{heroProject.title}</h3>
-              <p className="text-gray-300 text-lg md:text-xl max-w-lg line-clamp-2 mb-6">
-                {heroProject.description}
-              </p>
-               <div className="flex gap-2">
-                 {heroProject.tags.map(t => (
-                   <span key={t} className="px-3 py-1 rounded-lg bg-white/10 backdrop-blur border border-white/10 text-white text-xs font-medium">
-                     {t}
-                   </span>
-                 ))}
-               </div>
-            </div>
-          </div>
-
-          {/* Sub Projects - Fill the rest */}
-          {subProjects.map((project, idx) => (
-             <div 
-               key={project.id}
-               onClick={() => onProjectClick(project.id)}
-               className={`group relative rounded-[2rem] overflow-hidden cursor-pointer bg-muted/40 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 ring-1 ring-white/5 hover:ring-primary/30 ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}
-             >
-               <img 
+        {/* Standard Compact Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projectsData.slice(0, 3).map((project, idx) => (
+            <div 
+              key={project.id}
+              onClick={() => onProjectClick(project.id)}
+              className="group relative rounded-2xl overflow-hidden cursor-pointer bg-muted/40 aspect-[4/3] transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.02] ring-1 ring-white/5 hover:ring-primary/40"
+              style={{ animationDelay: `${idx * 150}ms` }}
+            >
+              <img 
                 src={project.imageUrl} 
                 alt={project.title} 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-               />
-               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-               <div className="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent">
-                  <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
-                  <p className="text-gray-300 text-sm line-clamp-1">{project.description}</p>
-               </div>
-             </div>
+              />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+              
+              <div className="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/90 to-transparent">
+                 <div className="flex items-center justify-between mb-2">
+                   <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                   <ArrowUpRight className="text-white/70 w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0" />
+                 </div>
+                 <p className="text-gray-200 text-sm line-clamp-2 opacity-90">{project.description}</p>
+                 <div className="flex gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                   {project.tags.slice(0, 2).map(t => (
+                     <span key={t} className="text-[10px] px-2 py-1 rounded bg-white/20 text-white backdrop-blur-sm">
+                       {t}
+                     </span>
+                   ))}
+                 </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
