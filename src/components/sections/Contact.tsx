@@ -25,7 +25,7 @@ export const Contact: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="group flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-border/50 hover:border-primary/50 transition-all duration-300">
+              <div className="group flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-transparent hover:bg-muted/50 transition-all duration-300">
                 <div className="w-10 h-10 rounded-full bg-background flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform text-primary">
                   <Mail size={18} />
                 </div>
@@ -73,7 +73,7 @@ export const Contact: React.FC = () => {
                    <label className="text-xs font-medium ml-1 text-muted-foreground">Mensaje</label>
                    <textarea 
                     rows={3} 
-                    className="w-full px-4 py-3 rounded-lg bg-background/50 border border-input focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all resize-none placeholder:text-muted-foreground/50 text-sm" 
+                    className="w-full px-4 py-3 rounded-lg bg-background/50 border border-transparent focus:bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none placeholder:text-muted-foreground/50 text-sm shadow-sm" 
                     placeholder="Cuéntame los detalles..." 
                    />
                 </div>
@@ -98,7 +98,7 @@ const InputGroup: React.FC<{ label: string; placeholder: string; type?: string }
     <label className="text-xs font-medium ml-1 text-muted-foreground">{label}</label>
     <input 
       type={type} 
-      className="w-full px-4 py-3 rounded-lg bg-background/50 border border-input focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all placeholder:text-muted-foreground/50 text-sm" 
+      className="w-full px-4 py-3 rounded-lg bg-background/50 border border-transparent focus:bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-muted-foreground/50 text-sm shadow-sm" 
       placeholder={placeholder} 
     />
   </div>

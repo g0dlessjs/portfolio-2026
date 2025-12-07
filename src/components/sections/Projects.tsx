@@ -147,7 +147,7 @@ export const ProjectsSection: React.FC<ProjectsProps> = ({ onProjectClick, onVie
           {/* Hero Project (Large) - Takes 2 cols and 2 rows on Desktop */}
           <div 
             onClick={() => onProjectClick(heroProject.id)}
-            className="group relative md:col-span-2 md:row-span-2 rounded-[2rem] overflow-hidden cursor-pointer bg-muted border border-border"
+            className="group relative md:col-span-2 md:row-span-2 rounded-[2rem] overflow-hidden cursor-pointer bg-muted/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.01] ring-1 ring-white/5 hover:ring-primary/40"
           >
             <img 
               src={heroProject.imageUrl} 
@@ -179,7 +179,7 @@ export const ProjectsSection: React.FC<ProjectsProps> = ({ onProjectClick, onVie
              <div 
                key={project.id}
                onClick={() => onProjectClick(project.id)}
-               className={`group relative rounded-[2rem] overflow-hidden cursor-pointer bg-muted border border-border ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+               className={`group relative rounded-[2rem] overflow-hidden cursor-pointer bg-muted/40 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 ring-1 ring-white/5 hover:ring-primary/30 ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}
              >
                <img 
                 src={project.imageUrl} 
@@ -220,11 +220,12 @@ export const AllProjects: React.FC<{ onProjectClick: (id: number) => void, onBac
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[350px]">
-        {projectsData.map((project) => (
+        {projectsData.map((project, idx) => (
           <div 
             key={project.id}
             onClick={() => onProjectClick(project.id)}
-            className="group relative rounded-3xl overflow-hidden cursor-pointer bg-muted border border-border"
+            className="group relative rounded-3xl overflow-hidden cursor-pointer bg-muted/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.02] ring-1 ring-white/5 hover:ring-primary/40"
+            style={{ animationDelay: `${idx * 100}ms` }}
           >
              <img 
                src={project.imageUrl} 

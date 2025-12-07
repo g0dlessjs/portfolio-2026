@@ -12,8 +12,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       id="home"
       className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-24 pb-12 lg:pt-32"
     >
-      {/* Developer Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+      {/* Developer Grid Background - Simplified */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="container px-4 md:px-6 mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -29,17 +29,17 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 <span className="text-muted-foreground select-none">&gt;</span>{" "}
                 Hola, soy Juan
               </p>
-              <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-foreground">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-indigo-500">
-                  DEVELOPER
+              <h1 className="text-5xl md:text-8xl font-display font-bold tracking-tight text-foreground leading-[0.9]">
+                <span className="block animate-in slide-in-from-left-4 duration-700 fade-in">BUILDING</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-indigo-500 animate-in slide-in-from-right-4 duration-700 fade-in delay-100">
+                  DIGITAL
                 </span>
+                <span className="block animate-in slide-in-from-bottom-4 duration-700 fade-in delay-200">REALITY</span>
               </h1>
             </div>
 
-            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed font-mono">
-              // Arquitecto soluciones digitales escalables.
-              <br className="hidden md:block" />
-              // Especializado en React, Node.js y la integración de IA.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed font-light animate-in fade-in duration-1000 delay-300">
+              Arquitecto de soluciones digitales. Fusiono diseño minimalista con ingeniería robusta.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
